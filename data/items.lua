@@ -1,4 +1,741 @@
 return {
+    -- sjcrafting
+    ['crafting_bench_w'] = {
+        label = 'Your Crafting Bench',
+        weight = 5000,
+        stack = false,
+        close = true,
+        description = 'Placeable crafting bench',
+        consume = 0,
+        client = {
+            image = 'advanced_workbench.png'
+        },
+        buttons = {
+            {
+                label = 'Place Crafting Bench',
+                action = function(slot)
+                    exports.SJCrafting:placeCraftingBench(slot)
+                end
+            }
+        }
+    },
+    ['police_crafting_bench'] = {
+        label = 'Your Crafting Bench',
+        weight = 5000,
+        stack = false,
+        close = true,
+        description = 'Placeable crafting bench',
+        consume = 0,
+        client = {
+            image = 'advanced_workbench.png'
+        },
+        buttons = {
+            {
+                label = 'Place Crafting Bench',
+                action = function(slot)
+                    exports.SJCrafting:placeCraftingBench(slot)
+                end
+            }
+        }
+    },
+    --
+
+    -- renzu_motels
+    ['keys'] = {
+        label = 'Motel Keys',
+        weight = 50,
+        stack = false,
+        close = true,
+        client = {
+            image = 'key.png'
+        },
+    },
+    --
+
+    -- xrb-hunting
+    ['skining_knife'] = {
+        label = 'Skining Knife',
+        weight = 200,
+        stack = true,
+    },
+    ['boar_meat'] = {
+        label = 'Boar Meat',
+        weight = 500,
+        stack = true,
+    },
+    ['boar_skin'] = {
+        label = 'Boar Skin',
+        weight = 700,
+        stack = true,
+    },
+    ['deer_meat'] = {
+        label = 'Deer Meat',
+        weight = 600,
+        stack = true,
+    },
+    ['deer_skin'] = {
+        label = 'Deer Skin',
+        weight = 800,
+        stack = true,
+    },
+    ['coyote_meat'] = {
+        label = 'Coyote Meat',
+        weight = 400,
+        stack = true,
+    },
+    ['coyote_skin'] = {
+        label = 'Coyote Skin',
+        weight = 600,
+        stack = true,
+    },
+    ['rabbit_meat'] = {
+        label = 'Rabbit Meat',
+        weight = 300,
+        stack = true,
+    },
+    ['rabbit_skin'] = {
+        label = 'Rabbit Skin',
+        weight = 400,
+        stack = true,
+    },
+    ['cow_meat'] = {
+        label = 'Cow Meat',
+        weight = 1000,
+        stack = true,
+    },
+    ['cow_skin'] = {
+        label = 'Cow Skin',
+        weight = 1200,
+        stack = true,
+    },
+    ['chicken_meat'] = {
+        label = 'Chicken Meat',
+        weight = 1000,
+        stack = true,
+    },
+    ['chicken_skin'] = {
+	   label = 'Chicken Skin',
+	   weight = 100,
+	   stack = true,
+    },
+	['pig_meat'] = {
+        label = 'Pig Meat',
+        weight = 500,
+        stack = true,
+    },
+	['pig_skin'] = {
+        label = 'Pig Skin',
+        weight = 300,
+        stack = true,
+    },
+    ['hunting_talent_reset'] = {
+        label = 'Hunting Talent Reset',
+        weight = 50,
+        stack = true,
+        close = true,
+        consume = 0,
+        client = {
+            image = 'hunting_talent_reset.png',
+            event = 'xrb-hunting-talentreset:client:useItem'
+        }
+    },
+    ['hunting_xpboost'] = {
+        label = 'Hunting XP Boost',
+        weight = 100,
+        stack = true,
+        close = true,
+        consume = 0,
+        client = {
+            image = 'hunting_xpboost.png',
+            event = 'xrb-hunting-xpboost:client:useItem'
+        }
+    },
+    --
+
+    -- complex-gunrange
+    ['gunrangereceipt'] = {
+        label = 'Firearms Test',
+        weight = 1000,
+        stack = false,
+        close = true,
+        description = 'Test Results from Firing Range',
+        client = {
+            image = 'contract_paper.png'
+        },
+    },
+    --
+
+    -- sd-drivingschool
+    ['driver_license'] = {
+        label = 'Driver License',
+        weight = 0,
+        stack = false,
+        close = true,
+        description = 'Official Driver License'
+    },
+
+    ['cdl_license'] = {
+        label = 'CDL License',
+        weight = 0,
+        stack = false,
+        close = true,
+        description = 'Commercial Driver License'
+    },
+
+    ['motorcycle_license'] = {
+        label = 'Motorcycle License',
+        weight = 0,
+        stack = false,
+        close = true,
+        description = 'Official Motorcycle License'
+    },
+    --
+
+    -- qbx_rentals
+    ['rentalpapers'] = {
+		label = 'Rental Papers',
+		weight = 100,
+		stack = false,
+		close = true,
+		description = 'Rental papers for your rented vehicle',
+	},
+    --
+    -- handcuffs for qbx_police after modification with nd_police handcuffs implementation
+    ["cuffs"] = {
+        label = "Handcuffs",
+        weight = 150,
+        client = {
+            export = 'qbx_police.cuff'
+        }
+    },
+    ["zipties"] = {
+        label = "Zipties",
+        weight = 10,
+        client = {
+            export = 'qbx_police.ziptie'
+        }
+    },
+    ["tools"] = {
+	    label = "Tools",
+        description = "Can be used to hotwire vehicles.",
+	    weight = 800,
+	    consume = 1,
+        stack = true,
+        close = true,
+		client = {
+            event = 'police:unziptie'
+		}
+	},
+    ["handcuffkey"] = {
+        label = "Handcuff key",
+        weight = 10,
+        client = {
+            export = 'qbx_police.uncuff'
+        }
+    },
+    --
+    -- mth-rc
+    ['rc-bandito'] = {
+        label = 'RC Bandito',
+        description = 'A remote controlled car',
+        weight = 2000,
+        stack = false,
+        close = true,
+        consume = 1,
+        client = {
+            export = 'mth-rc.useRcBandito'
+        },
+        server = {
+            export = 'mth-rc.rcBandito'
+        }
+    },
+    --
+
+    -- nzkfc_drone
+    ['drone'] = {
+		label = 'Drone',
+		weight = 800,
+		stack = false,   -- each drone has its own serial/metadata
+		close = true,
+		client = {
+			event = 'nzkfc_drone:useItem',
+		},
+	},
+
+	['drone_battery'] = {
+		label = 'Drone Battery',
+		weight = 200,
+		stack = false,   -- each battery tracks charge in metadata
+		close = true,
+	},
+
+	['drone_battery_empty'] = {
+		label = 'Drone Battery (Empty)',
+		weight = 200,
+		stack = true,
+		close = true,
+	},
+    --
+
+    -- qb-vehicle-tracker
+    ['vehicletracker'] = {
+        label = 'Vehicle GPS Tracker',
+        weight = 1000,
+        stack = false,
+        close = true,
+        description = "A device placed to track a vehicle\'s location."
+    },
+    ['vehicletrackertablet'] = {
+        label = 'Vehicle Tracker Tablet',
+        weight = 1000,
+        stack = false,
+        close = true,
+        description = "Connects to a vehicle tracker to show it\'s location."
+    },
+    ['vehicletrackerscanner'] = {
+        label = 'Vehicle Tracker Scanner',
+        weight = 1000,
+        stack = false,
+        close = true,
+        description = "Scans a vehicle for existence of GPS tracker."
+    },
+    --
+
+    -- qbx_divegear
+    ['diving_fill'] = {
+        label = 'Diving Tube',
+        weight = 3000,
+        stack = false,
+        close = true,
+        description = "used to refill your diving gear's oxygen supply."
+    },
+
+    ['diving_gear'] = {
+        label = 'Diving Gear',
+        weight = 30000,
+        stack = false,
+        close = true,
+        description = "A diving set that let's swim underwater. Blub blub!"
+    },
+    --
+
+    -- ap_pet
+    ['pet_medkit'] = {
+        label = 'Pet Medkit',
+        weight = 500,
+        stack = true,
+        close = true,
+        client = {
+            image = 'medikit.png'
+        },
+        description = 'A first aid kit to heal an injured pet.',
+    },
+
+    ['pet_revive'] = {
+        label = 'Pet Revive',
+        weight = 200,
+        stack = true,
+        close = true,
+        client = {
+            image = 'medic_bag.png'
+        },
+        description = 'An adrenaline syringe to revive a dead pet.',
+    },
+
+    ['pet_food'] = {
+        label = 'Pet Food',
+        weight = 200,
+        stack = true,
+        close = true,
+        client = {
+            image = 'boarmeat.png'
+        },
+        description = 'Some tasty food for your pet.',
+    },
+
+    ['pet_water'] = {
+        label = 'Pet Water',
+        weight = 200,
+        stack = true,
+        close = true,
+        client = {
+            image = 'water.png'
+        },
+        description = 'A bowl of water for your pet.',
+    },
+    --
+
+    -- dev-fishing
+    ['fishingrod'] = {
+        label = 'Fishing Rod',
+        rarity = 'common',
+        weight = 2000,
+        stack = false,
+        close = true,
+        client = {
+            image = 'fishingrod.png'
+        },
+        description = 'A sturdy fishing rod used for catching fish.',
+    },
+
+    ['fishbait'] = {
+        label = 'Fish Bait',
+        rarity = 'common',
+        weight = 50,
+        stack = true,
+        close = true,
+        client = {
+            image = 'fishbait.png'
+        },
+        description = 'Fishing bait used to attract fish.',
+    },
+
+    ['anchovy'] = {
+        label = 'Anchovy',
+        rarity = 'common',
+        weight = 100,
+        stack = true,
+        close = true,
+        client = {
+            image = 'fish.png'
+        },
+        description = 'A small saltwater fish commonly found in schools.',
+    },
+
+    ['sardine'] = {
+        label = 'Sardine',
+        rarity = 'common',
+        weight = 100,
+        stack = true,
+        close = true,
+        client = {
+            image = 'fish.png'
+        },
+        description = 'A small oily fish commonly caught near the coast.',
+    },
+
+    ['mackerel'] = {
+        label = 'Mackerel',
+        rarity = 'common',
+        weight = 150,
+        stack = true,
+        close = true,
+        client = {
+            image = 'fish.png'
+        },
+        description = 'A fast-swimming saltwater fish with distinctive markings.',
+    },
+
+    ['bass'] = {
+        label = 'Bass',
+        rarity = 'uncommon',
+        weight = 250,
+        stack = true,
+        close = true,
+        client = {
+            image = 'strippedbass_fish.png'
+        },
+        description = 'A popular game fish prized by anglers.',
+    },
+
+    ['salmon'] = {
+        label = 'Salmon',
+        rarity = 'uncommon',
+        weight = 300,
+        stack = true,
+        close = true,
+        client = {
+            image = 'fish.png'
+        },
+        description = 'A valuable fish known for its rich meat.',
+    },
+
+    ['tuna'] = {
+        label = 'Tuna',
+        rarity = 'rare',
+        weight = 500,
+        stack = true,
+        close = true,
+        client = {
+            image = 'fish.png'
+        },
+        description = 'A large and valuable ocean fish.',
+    },
+
+    ['swordfish'] = {
+        label = 'Swordfish',
+        rarity = 'rare',
+        weight = 600,
+        stack = true,
+        close = true,
+        client = {
+            image = 'swordfish.png'
+        },
+        description = 'A powerful ocean predator distinguished by its long bill.',
+    },
+
+    ['clam'] = {
+        label = 'Clam',
+        rarity = 'common',
+        weight = 100,
+        stack = true,
+        close = true,
+        client = {
+            image = 'fish.png'
+        },
+        description = 'A shellfish collected from coastal waters.',
+    },
+
+    ['treasure_map'] = {
+        label = 'Treasure Map',
+        rarity = 'rare',
+        weight = 50,
+        stack = false,
+        close = true,
+        client = {
+            image = 'mapa.png'
+        },
+        description = 'An old map that appears to mark the location of hidden treasure.',
+    },
+
+    ['ancient_relic'] = {
+        label = 'Ancient Relic',
+        rarity = 'legendary',
+        weight = 400,
+        stack = false,
+        close = true,
+        client = {
+            image = 'md_ancientcoin.png'
+        },
+        description = 'A mysterious ancient artifact recovered from the depths.',
+    },
+
+    ['lottery_ticket'] = {
+        label = 'Lottery Ticket',
+        rarity = 'uncommon',
+        weight = 10,
+        stack = false,
+        close = true,
+        client = {
+            image = 'lottery_scratchcards.png'
+        },
+        description = 'A lottery ticket that might be worth something.',
+    },
+
+    ['fishing_voucher'] = {
+        label = 'Fishing Voucher',
+        rarity = 'uncommon',
+        weight = 10,
+        stack = false,
+        close = true,
+        client = {
+            image = 'contract_paper.png'
+        },
+        description = 'A voucher that can be exchanged for fishing-related goods or rewards.',
+    },
+    --
+
+    -- mt_fakeplates
+    ['fakeplate'] = {
+        label = 'Vehicle plate',
+        weight = 1000,
+        client = {
+            image = 'veh_plates.png',
+            export = 'mt_fakeplates.useFakeplate'
+        }
+    },
+
+    ['screwdriver'] = {
+        label = 'Screwdriver',
+        rarity = 'common',
+        weight = 1000,
+        stack = true,
+        close = true,
+        client = {
+            export = 'mt_fakeplates.removeFakeplate'
+        },
+        description = 'A flathead screwdriver for prying coin boxes and unbolting fixtures.',
+    },
+    --
+
+    -- wz-blindfold
+    ["blindfold"] = {
+        label = 'Blindfold',
+        weight = 100,
+        stack = true,
+        close = true,
+        description = 'Old and worn bag that can be used to cover someone\'s eyes. Perfect for kidnappings, robberies, or just messing with your friends.',
+        client = {
+            image = 'blindfold.png',
+        }
+    },
+    --
+
+    -- nd_ambulance
+    ["stretcher"] = {
+        label = "Stretcher",
+        weight = 15000,
+        stack = false,
+        consume = 1,
+        server = {
+            export = "ND_Ambulance.createStretcher"
+        }
+    },
+    ["defib"] = {
+        label = "Monitor/defibrillator",
+        weight = 8000,
+        stack = false,
+        consume = 1,
+        client = {
+            export = "ND_Ambulance.useDefib",
+            add = function(total)
+                if total > 0 then
+                    pcall(function()
+                        return exports["ND_Ambulance"]:hasDefib(true)
+                    end)
+                end
+            end,
+            remove = function(total)
+                if total < 1 then
+                    pcall(function()
+                        return exports["ND_Ambulance"]:hasDefib(false)
+                    end)
+                end
+            end
+        }
+    },
+    ["medbag"] = {
+        label = "Trauma bag",
+        weight = 1000,
+        stack = false,
+        consume = 1,
+        server = {
+            export = "ND_Ambulance.useBag"
+        },
+        client = {
+            export = "ND_Ambulance.useBag",
+            add = function(total)
+                if total > 0 then
+                    pcall(function()
+                        return exports["ND_Ambulance"]:bag(true)
+                    end)
+                end
+            end,
+            remove = function(total)
+                if total < 1 then
+                    pcall(function()
+                        return exports["ND_Ambulance"]:bag(false)
+                    end)
+                end
+            end
+        }
+    },
+    ["burndressing"] = {
+        label = "Burn Dressing",
+        weight = 50,
+        server = {
+            export = "ND_Ambulance.treatment"
+        },
+        client = {
+            anim = { dict = "missheistdockssetup1clipboard@idle_a", clip = "idle_a", flag = 49 },
+            prop = { model = `prop_toilet_roll_01`, pos = vec3(-0.14, -0.14, -0.08), rot = vec3(-50.0, -50.0, 0.0) },
+            disable = { move = true, car = true, combat = true },
+            usetime = 2500
+        }
+    },
+    ["splint"] = {
+        label = "Splint",
+        weight = 500,
+        server = {
+            export = "ND_Ambulance.treatment"
+        },
+        client = {
+            anim = { dict = "missheistdockssetup1clipboard@idle_a", clip = "idle_a", flag = 49 },
+            prop = { model = `prop_toilet_roll_01`, pos = vec3(-0.14, -0.14, -0.08), rot = vec3(-50.0, -50.0, 0.0) },
+            disable = { move = true, car = true, combat = true },
+            usetime = 2500
+        }
+    },
+    ["gauze"] = {
+        label = "Gauze",
+        weight = 80,
+        server = {
+            export = "ND_Ambulance.treatment"
+        },
+        client = {
+            anim = { dict = "missheistdockssetup1clipboard@idle_a", clip = "idle_a", flag = 49 },
+            prop = { model = `prop_toilet_roll_01`, pos = vec3(-0.14, -0.14, -0.08), rot = vec3(-50.0, -50.0, 0.0) },
+            disable = { move = true, car = true, combat = true },
+            usetime = 2500
+        }
+    },
+    ["tourniquet"] = {
+        label = "Tourniquet",
+        weight = 85,
+        server = {
+            export = "ND_Ambulance.treatment"
+        },
+        client = {
+            anim = { dict = "missheistdockssetup1clipboard@idle_a", clip = "idle_a", flag = 49 },
+            prop = { model = `prop_rolled_sock_02`, pos = vec3(-0.14, -0.14, -0.08), rot = vec3(-50.0, -50.0, 0.0) },
+            disable = { move = true, car = true, combat = true },
+            usetime = 2500
+        }
+    },
+    --
+
+    -- Gym items
+    ['whey'] = {
+        label = 'Whey Protein',
+        weight = 500,
+        stack = true,
+        close = true,
+        description = 'Recover from training in eight hours instead of twenty-five.',
+        client = {
+            status = { thirst = -5000 },
+            anim = 'eating',
+            prop = 'burger',
+            usetime = 3000,
+        },
+        consume = 1,
+    },
+
+    ['protein_bar'] = {
+        label = 'Protein Bar',
+        weight = 150,
+        stack = true,
+        close = true,
+        description = 'A little of your training allowance back.',
+        client = { anim = 'eating', prop = 'burger', usetime = 2500 },
+        consume = 1,
+    },
+
+    ['pre_workout'] = {
+        label = 'Pre-Workout',
+        weight = 300,
+        stack = true,
+        close = true,
+        description = 'Everything you train for the next half hour is worth more.',
+        client = { anim = 'eating', prop = 'burger', usetime = 2000 },
+        consume = 1,
+    },
+
+    ['sports_drink'] = {
+        label = 'Sports Drink',
+        weight = 400,
+        stack = true,
+        close = true,
+        description = 'Get your breath back.',
+        client = {
+            status = { thirst = 40000 },
+            anim = 'drinking',
+            prop = 'water_bottle',
+            usetime = 2000,
+        },
+        consume = 1,
+    },
+    --
+
     ['paper_map'] = {
         label = 'Map',
         rarity = 'uncommon',
@@ -242,139 +979,121 @@ return {
             export = 'sd-ttt.useTtt_radar'
         }
     },
-
-    ['screwdriver'] = {
-    label = 'Screwdriver',
-    rarity = 'common',
-    weight = 300,
-    stack = true,
-    close = true,
-    description = 'A flathead screwdriver for prying coin boxes and unbolting fixtures.',
-},
-['wirecutter'] = {
-    label = 'Wire Cutters',
-    rarity = 'common',
-    weight = 600,
-    stack = true,
-    close = true,
-    description = 'Sharp wire cutters that slice through brake lines and wiring.',
-},
-['cutter'] = {
-    label = 'Box Cutter',
-    rarity = 'common',
-    weight = 200,
-    stack = true,
-    close = true,
-    description = 'A retractable box cutter - sharp enough to slash tyres and puncture tanks.',
-},
-['multitool'] = {
-    label = 'Multitool',
-    rarity = 'uncommon',
-    weight = 400,
-    stack = true,
-    close = true,
-    description = 'A folding multitool that handles meters, news racks, and signs.',
-},
-['powersaw'] = {
-    label = 'Power Saw',
-    rarity = 'uncommon',
-    grid = { 2, 2 },
-    weight = 4000,
-    stack = true,
-    close = true,
-    description = 'A cordless reciprocating saw for cutting through metal.',
-},
-['anglegrinder'] = {
-    label = 'Angle Grinder',
-    rarity = 'uncommon',
-    grid = { 2, 2 },
-    weight = 3500,
-    stack = true,
-    close = true,
-    description = 'A battery angle grinder that chews through converters and AC units.',
-},
-['bolt_cutter'] = {
-    label = 'Bolt Cutters',
-    rarity = 'uncommon',
-    grid = { 2, 1 },
-    weight = 2500,
-    stack = true,
-    close = true,
-    description = 'Long-handled bolt cutters for chains, bolts, and converter mounts.',
-},
-['oxycutter'] = {
-    label = 'Oxy Cutter',
-    rarity = 'rare',
-    grid = { 2, 2 },
-    weight = 4000,
-    stack = true,
-    close = true,
-    description = 'An oxy-acetylene cutting torch that slices through catalytic converters and AC units in seconds.',
-},
-['brick'] = {
-    label = 'Brick',
-    rarity = 'common',
-    weight = 2000,
-    stack = true,
-    close = true,
-    description = 'A heavy clay brick. Wedge it on a gas pedal to send a car running.',
-},
-['porch_package'] = {
-    label = 'Porch Package',
-    rarity = 'uncommon',
-    grid = { 2, 2 },
-    weight = 1000,
-    stack = false,
-    close = true,
-    consume = 0,
-    description = 'A swiped porch delivery. Use it to open it up and see what was inside.',
-    server = { export = 'sd-pettycrime.usePorch_package' },
-},
-['mail_package'] = {
-    label = 'Mail Bundle',
-    rarity = 'common',
-    grid = { 2, 1 },
-    weight = 300,
-    stack = false,
-    close = true,
-    consume = 0,
-    description = 'A bundle of stolen mail. Use it to open it up and see what was inside.',
-    server = { export = 'sd-pettycrime.useMail_package' },
-},
-['skimmer'] = {
-    label = 'Card Skimmer',
-    rarity = 'rare',
-    weight = 250,
-    stack = true,
-    close = true,
-    description = 'Install on an ATM, then slot in a USB to record card data. Wears out the longer it runs.',
-},
-['atm_skimmer_usb'] = {
-    label = 'Card Data USB',
-    rarity = 'uncommon',
-    weight = 50,
-    stack = true,
-    close = true,
-    description = 'A USB stick for an ATM card skimmer. Stores stolen card data when slotted into an installed skimmer.',
-},
-['speed_bomb'] = {
-    label = 'Speedbomb',
-    rarity = 'epic',
-    grid = { 2, 1 },
-    weight = 1500,
-    stack = true,
-    close = true,
-    description = 'Wire it under a parked vehicle. Arms when driven fast and blows if the speed drops.',
-},
-['catalytic_converter'] = {
-    label = 'Catalytic Converter',
-    rarity = 'rare',
-    grid = { 2, 2 },
-    weight = 2500,
-    stack = true,
-    close = true,
-    description = 'A sawn-off catalytic converter, packed with precious metals and worth a fortune to the right buyer.',
-},
+    ['wirecutter'] = {
+        label = 'Wire Cutters',
+        rarity = 'common',
+        weight = 600,
+        stack = true,
+        close = true,
+        description = 'Sharp wire cutters that slice through brake lines and wiring.',
+    },
+    ['cutter'] = {
+        label = 'Box Cutter',
+        rarity = 'common',
+        weight = 200,
+        stack = true,
+        close = true,
+        description = 'A retractable box cutter - sharp enough to slash tyres and puncture tanks.',
+    },
+    ['multitool'] = {
+        label = 'Multitool',
+        rarity = 'uncommon',
+        weight = 400,
+        stack = true,
+        close = true,
+        description = 'A folding multitool that handles meters, news racks, and signs.',
+    },
+    ['anglegrinder'] = {
+        label = 'Angle Grinder',
+        rarity = 'uncommon',
+        grid = { 2, 2 },
+        weight = 3500,
+        stack = true,
+        close = true,
+        description = 'A battery angle grinder that chews through converters and AC units.',
+    },
+    ['bolt_cutter'] = {
+        label = 'Bolt Cutters',
+        rarity = 'uncommon',
+        grid = { 2, 1 },
+        weight = 2500,
+        stack = true,
+        close = true,
+        description = 'Long-handled bolt cutters for chains, bolts, and converter mounts.',
+    },
+    ['oxycutter'] = {
+        label = 'Oxy Cutter',
+        rarity = 'rare',
+        grid = { 2, 2 },
+        weight = 4000,
+        stack = true,
+        close = true,
+        description = 'An oxy-acetylene cutting torch that slices through catalytic converters and AC units in seconds.',
+    },
+    ['brick'] = {
+        label = 'Brick',
+        rarity = 'common',
+        weight = 2000,
+        stack = true,
+        close = true,
+        description = 'A heavy clay brick. Wedge it on a gas pedal to send a car running.',
+    },
+    ['porch_package'] = {
+        label = 'Porch Package',
+        rarity = 'uncommon',
+        grid = { 2, 2 },
+        weight = 1000,
+        stack = false,
+        close = true,
+        consume = 0,
+        description = 'A swiped porch delivery. Use it to open it up and see what was inside.',
+        server = { export = 'sd-pettycrime.usePorch_package' },
+    },
+    ['mail_package'] = {
+        label = 'Mail Bundle',
+        rarity = 'common',
+        grid = { 2, 1 },
+        weight = 300,
+        stack = false,
+        close = true,
+        consume = 0,
+        description = 'A bundle of stolen mail. Use it to open it up and see what was inside.',
+        server = { export = 'sd-pettycrime.useMail_package' },
+    },
+    ['skimmer'] = {
+        label = 'Card Skimmer',
+        rarity = 'rare',
+        weight = 250,
+        stack = true,
+        close = true,
+        description = 'Install on an ATM, then slot in a USB to record card data. Wears out the longer it runs.',
+    },
+    ['atm_skimmer_usb'] = {
+        label = 'Card Data USB',
+        rarity = 'uncommon',
+        weight = 50,
+        stack = true,
+        close = true,
+        description = 'A USB stick for an ATM card skimmer. Stores stolen card data when slotted into an installed skimmer.',
+    },
+    ['speed_bomb'] = {
+        label = 'Speedbomb',
+        rarity = 'epic',
+        grid = { 2, 1 },
+        weight = 1500,
+        stack = true,
+        close = true,
+        description = 'Wire it under a parked vehicle. Arms when driven fast and blows if the speed drops.',
+    },
+    ['catalytic_converter'] = {
+        label = 'Catalytic Converter',
+        rarity = 'rare',
+        grid = { 2, 2 },
+        weight = 2500,
+        stack = true,
+        close = true,
+        description = 'A sawn-off catalytic converter, packed with precious metals and worth a fortune to the right buyer.',
+    },
     
     ["ttt_fake_id"] = {
         label = "Innocent ID Card",
@@ -1563,11 +2282,6 @@ return {
 		weight = 25
 	},
 
-    ['driver_license'] = {
-        label = 'Drivers License',
-        rarity = 'common',
-    },
-
     ['weaponlicense'] = {
         label = 'Weapon License',
         rarity = 'uncommon',
@@ -1894,25 +2608,63 @@ return {
         weight = 500,
     },
 
-    ['cleaningkit'] = {
-        label = 'Cleaning Kit',
-        rarity = 'common',
-        weight = 500,
+    -- QuantumMalice cleaningkit, repairkit, and advancedrepairkit was here before but looked alot different
+    ["cleaningkit"] = {
+        label = "Cleaning Kit",
+        weight = 250,
+        stack = true,
+        close = true,
+        description = "A microfiber cloth with some soap will let your car sparkle again!",
+        client = {
+            image = "cleaningkit.png",
+        },
+        server = {
+            export = 'vehiclehandler.cleaningkit'
+        }
     },
 
-    ['repairkit'] = {
-        label = 'Repair Kit',
-        rarity = 'uncommon',
-        grid = { 2, 1 },
+    ["tirekit"] = {
+        label = "Tire Kit",
+        weight = 250,
+        stack = true,
+        close = true,
+        description = "A nice toolbox with stuff to repair your tire",
+        client = {
+            image = "tirekit.png",
+        },
+        server = {
+            export = 'vehiclehandler.tirekit'
+        }
+    },
+
+    ["repairkit"] = {
+        label = "Repairkit",
         weight = 2500,
+        stack = true,
+        close = true,
+        description = "A nice toolbox with stuff to repair your vehicle",
+        client = {
+            image = "repairkit.png",
+        },
+        server = {
+            export = 'vehiclehandler.repairkit',
+        }
     },
 
-    ['advancedrepairkit'] = {
-        label = 'Advanced Repair Kit',
-        rarity = 'rare',
-        grid = { 2, 1 },
-        weight = 4000,
+    ["advancedrepairkit"] = {
+        label = "Advanced Repairkit",
+        weight = 5000,
+        stack = true,
+        close = true,
+        description = "A nice toolbox with stuff to repair your vehicle",
+        client = {
+            image = "advancedrepairkit.png",
+        },
+        server = {
+            export = 'vehiclehandler.advancedrepairkit',
+        }
     },
+    --
 
     ['diamond_ring'] = {
         label = 'Diamond',
@@ -2074,7 +2826,7 @@ return {
             image = "wood.png",
         }
     },
-    
+
     ["powersaw"] = {
         label = "Power Saw",
         rarity = 'uncommon',
@@ -2288,111 +3040,94 @@ return {
         }
     },
 
--- Add this to your regular items.lua (or replace if they already exist)
-["diving_gear_1"] = {
-    label = "Basic Scuba Gear",
-    rarity = 'common',
-    grid = { 2, 2 },
-    clothing = 'backpack',
-    weight = 1000,
-    stack = false,
-    close = true,
-    consume = 0,
-    description = "Basic diving equipment with 120 seconds of oxygen. Use to put on diving suit.",
-    client = {
-        image = "diving_gear_1.png",
-    },
-    server = {
-        export = 'sd-civjobs.useDivingGear'
-    }
-},
-
-["diving_gear_2"] = {
-    label = "Improved Scuba Gear",
-    rarity = 'uncommon',
-    grid = { 2, 2 },
-    clothing = 'backpack',
-    weight = 1000,
-    stack = false,
-    close = true,
-    consume = 0,
-    description = "Improved diving equipment with 180 seconds of oxygen. Use to put on diving suit.",
-    client = {
-        image = "diving_gear_2.png",
-    },
-    server = {
-        export = 'sd-civjobs.useDivingGear'
-    }
-},
-
-["diving_gear_3"] = {
-    label = "Advanced Scuba Gear",
-    rarity = 'rare',
-    grid = { 2, 2 },
-    clothing = 'backpack',
-    weight = 1000,
-    stack = false,
-    close = true,
-    consume = 0,
-    description = "Advanced diving equipment with 240 seconds of oxygen. Use to put on diving suit.",
-    client = {
-        image = "diving_gear_3.png",
-    },
-    server = {
-        export = 'sd-civjobs.useDivingGear'
-    }
-},
-
-["diving_gear_4"] = {
-    label = "Professional Scuba Gear",
-    rarity = 'epic',
-    grid = { 2, 2 },
-    clothing = 'backpack',
-    weight = 1000,
-    stack = false,
-    close = true,
-    consume = 0,
-    description = "Professional diving equipment with 300 seconds of oxygen. Use to put on diving suit.",
-    client = {
-        image = "diving_gear_4.png",
-    },
-    server = {
-        export = 'sd-civjobs.useDivingGear'
-    }
-},
-
-["diving_gear_5"] = {
-    label = "Elite Scuba Gear",
-    rarity = 'legendary',
-    grid = { 2, 2 },
-    clothing = 'backpack',
-    weight = 1000,
-    stack = false,
-    close = true,
-    consume = 0,
-    description = "Elite diving equipment with 360 seconds of oxygen. Use to put on diving suit.",
-    client = {
-        image = "diving_gear_5.png",
-    },
-    server = {
-        export = 'sd-civjobs.useDivingGear'
-    }
-},
-    
-    ["diving_fill"] = {
-        label = "Diving Tube",
+    -- Add this to your regular items.lua (or replace if they already exist)
+    ["diving_gear_1"] = {
+        label = "Basic Scuba Gear",
         rarity = 'common',
-        grid = { 1, 2 },
+        grid = { 2, 2 },
+        clothing = 'backpack',
         weight = 1000,
         stack = false,
         close = true,
         consume = 0,
-        description = "Refill your oxygen tank with this diving tube.",
+        description = "Basic diving equipment with 120 seconds of oxygen. Use to put on diving suit.",
         client = {
-            image = "diving_tube.png",
+            image = "diving_gear_1.png",
         },
         server = {
-            export = 'sd-civjobs.useDivingFill'
+            export = 'sd-civjobs.useDivingGear'
+        }
+    },
+
+    ["diving_gear_2"] = {
+        label = "Improved Scuba Gear",
+        rarity = 'uncommon',
+        grid = { 2, 2 },
+        clothing = 'backpack',
+        weight = 1000,
+        stack = false,
+        close = true,
+        consume = 0,
+        description = "Improved diving equipment with 180 seconds of oxygen. Use to put on diving suit.",
+        client = {
+            image = "diving_gear_2.png",
+        },
+        server = {
+            export = 'sd-civjobs.useDivingGear'
+        }
+    },
+
+    ["diving_gear_3"] = {
+        label = "Advanced Scuba Gear",
+        rarity = 'rare',
+        grid = { 2, 2 },
+        clothing = 'backpack',
+        weight = 1000,
+        stack = false,
+        close = true,
+        consume = 0,
+        description = "Advanced diving equipment with 240 seconds of oxygen. Use to put on diving suit.",
+        client = {
+            image = "diving_gear_3.png",
+        },
+        server = {
+            export = 'sd-civjobs.useDivingGear'
+        }
+    },
+
+    ["diving_gear_4"] = {
+        label = "Professional Scuba Gear",
+        rarity = 'epic',
+        grid = { 2, 2 },
+        clothing = 'backpack',
+        weight = 1000,
+        stack = false,
+        close = true,
+        consume = 0,
+        description = "Professional diving equipment with 300 seconds of oxygen. Use to put on diving suit.",
+        client = {
+            image = "diving_gear_4.png",
+        },
+        server = {
+            export = 'sd-civjobs.useDivingGear'
+        }
+    },
+
+    ["diving_gear_5"] = {
+        label = "Elite Scuba Gear",
+        rarity = 'legendary',
+        grid = { 2, 2 },
+        clothing = 'backpack',
+        weight = 1000,
+        stack = false,
+        close = true,
+        consume = 0,
+        description = "Elite diving equipment with 360 seconds of oxygen. Use to put on diving suit.",
+        client = {
+            image = "diving_gear_5.png",
+        },
+        server = {
+            export = 'sd-civjobs.useDivingGear'
         }
     },
 
