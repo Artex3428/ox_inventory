@@ -189,6 +189,22 @@ return {
         close = true,
         description = 'Official Motorcycle License'
     },
+
+    ['pilot_license'] = {
+        label = 'Pilot License',
+        weight = 0,
+        stack = false,
+        close = true,
+        description = 'Official Pilot License'
+    },
+
+    ['boat_license'] = {
+        label = 'Boat License',
+        weight = 0,
+        stack = false,
+        close = true,
+        description = 'Official Boat License'
+    },
     --
 
     -- qbx_rentals
