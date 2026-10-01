@@ -101,6 +101,7 @@ else
         disableweapons = GetConvarInt('inventory:disableweapons', 0) == 1,
         disablesetupnotification = GetConvarInt('inventory:disablesetupnotification', 0) == 1,
         enablestealcommand = GetConvarInt('inventory:enablestealcommand', 1) == 1,
+        reloadnotify = GetConvarInt('inventory:reloadnotify', 1) == 1,
     }
 
     local ignoreweapons = table.create(0, (client.ignoreweapons and #client.ignoreweapons or 0) + 3)

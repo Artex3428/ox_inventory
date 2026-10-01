@@ -718,7 +718,13 @@ local function useSlot(slot, noAnim)
 						end)
 					end
 
+					if not client.reloadnotify then
+						TriggerEvent('ox_inventory:suppressItemNotifications', true)
+					end
 					lib.callback.await('ox_inventory:updateWeapon', false, 'load', newAmmo, false, currentWeapon.metadata.specialAmmo)
+					if not client.reloadnotify then
+						TriggerEvent('ox_inventory:suppressItemNotifications', false)
+					end
 				end)
 			elseif data.component then
 				local components = data.client.component
